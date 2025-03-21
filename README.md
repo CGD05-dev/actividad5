@@ -9,7 +9,7 @@ Cambios realizados
 	•	 Contador de taps: Se agregó un contador que muestra la cantidad de taps realizados por el jugador.
 	•	 Detección de victoria: El juego ahora detecta cuando todos los cuadros han sido destapados y muestra un mensaje de victoria.
 	•	 Dígitos centrados: Los números ahora están centrados dentro de cada cuadro para mejorar la visualización.
-	•	 Uso de letras: En lugar de dígitos, se utilizan letras para que el juego sea más desafiante y atractivo para la memoria visual.
+	•	 Uso de letras: En lugar de dígitos, se utilizan animales para que el juego sea más desafiante y atractivo para la memoria visual.
 
 Colaboradores
 	•	David Antonio Zárate Villaseñor (A01665896)
