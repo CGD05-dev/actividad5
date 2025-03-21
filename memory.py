@@ -1,3 +1,5 @@
+"""David Antonio Zarate Villaseñor A01665896
+Christopher Gordillo Dominguez A01666339"""
 """Memory, puzzle game of number pairs.
 
 Exercises:
@@ -9,7 +11,7 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
-from random import *
+from random import * 
 from turtle import *
 
 from freegames import path
@@ -18,7 +20,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
-
+state = {'mark': None, 'taps': 0}  # Contador de taps agregado
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -42,11 +44,12 @@ def xy(count):
     """Convert tiles count to (x, y) coordinates."""
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
-
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     spot = index(x, y)
     mark = state['mark']
+    state['taps'] += 1
+
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
@@ -70,12 +73,24 @@ def draw():
 
     mark = state['mark']
 
+
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
+
+    # Display tap count
+    up()
+    goto(-180, 180)  # Position above the grid
+    color('black')
+    write(f"Taps: {state['taps']}", font=('Arial', 20, 'normal'))
+
+    # Check if all tiles are revealed
+    if all(not hidden for hidden in hide):
+        goto(0, -120)  # Position below the grid
+        write("You Won!", align="center", font=('Arial', 30, 'bold'))
 
     update()
     ontimer(draw, 100)
