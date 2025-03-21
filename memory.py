@@ -17,7 +17,10 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+tiles = ['cat', 'dog', 'bird', 'fish', 'lion', 'tiger', 'bear', 'wolf',
+         'fox', 'deer', 'horse', 'zebra', 'snake', 'frog', 'owl', 'bat',
+         'rat', 'pig', 'cow', 'sheep', 'goat', 'duck', 'hen', 'rooster',
+         'rabbit', 'mouse', 'elephant', 'giraffe', 'monkey', 'panda', 'kangaroo', 'koala'] * 2
 state = {'mark': None}
 hide = [True] * 64
 state = {'mark': None, 'taps': 0}  # Contador de taps agregado
@@ -77,9 +80,9 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 25, y + 15)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark],align ='center', font=('Arial', 25, 'normal'))
 
     # Display tap count
     up()
